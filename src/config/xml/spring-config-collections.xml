@@ -1,0 +1,38 @@
+<?config.xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="spring-config-di.xml"/>
+
+    <bean id="school" class="ru.izium.spring.di.School">
+        <property name="contacts">
+            <props>
+                <prop key="name">IziUm</prop>
+                <prop key="email">IziUm@</prop>
+                <prop key="phone">890</prop>
+            </props>
+        </property>
+        <property name="courses">
+            <list>
+                <ref bean="course"/>
+                <ref bean="course"/>
+                <ref bean="course"/>1
+            </list>
+        </property>
+        <property name="students">
+            <map>
+                <entry key="1" value-ref="student"/>
+                <entry key="2" value-ref="student"/>
+                <entry key="3" value-ref="student"/>
+            </map>
+        </property>
+        <property name="teachers">
+            <set>
+                <ref bean="teacher"/>
+                <ref bean="teacher"/>
+                <ref bean="teacher"/>
+            </set>
+        </property>
+    </bean>
+</beans>
